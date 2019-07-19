@@ -2,9 +2,9 @@
 
 ## JavaScript
 
-####Promises
+#### Promises
 * How run an array promises one after another? 
-~~~~ 
+~~~~js 
 function promiseCreator(timeout) {
   return prevResult =>
     new Promise(resolve =>
@@ -36,7 +36,7 @@ chainPromises
   
   **Final result:** 'failback'  
   unlike 'try...catch...finally' return from 'finally' does not affect anything, so last 'then' get value from last successful promise (i.e, from 'catch')
-~~~~ 
+~~~~js 
 new Promise(resolve => setTimeout(() => resolve('+')), 1000)
   .then(() => { console.log('t0'); throw new Error(0) })
   .then(() => 't1')
@@ -45,4 +45,3 @@ new Promise(resolve => setTimeout(() => resolve('+')), 1000)
   .finally(() => { console.log('f1'); return 'f1' })
   .then(res => { console.log('t2'); console.log(`=> ${res}`) })
 ~~~~
-
